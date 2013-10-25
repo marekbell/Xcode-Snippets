@@ -6,11 +6,11 @@
 // Completion Scope: Class Implementation
 
 + (instancetype)shared<#name#> {
-    static <#class#> *_shared<#name#> = nil;
+    static id singleton = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _shared<#name#> = <#initializer#>;
+        singleton = [[self alloc] init];
     });
     
-    return _shared<#name#>;
+    return singleton;
 }
